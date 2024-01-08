@@ -262,7 +262,7 @@ export default function Profile() {
               className="border rounded-lg p-3 flex justify-between items-center gap-4"
             >
               <Link
-                to={`/listings/${listing._id}`}
+                to={`/listing/${listing._id}`}
                 className="flex justify-between items-center gap-4"
               >
                 <img
