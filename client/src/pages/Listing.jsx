@@ -14,6 +14,7 @@ import {
   FaParking,
   FaShare,
 } from "react-icons/fa";
+import Contact from "../components/Contact";
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
@@ -114,22 +115,32 @@ export default function Listing() {
             </p>
             <ul className="flex flex-wrap items-center gap-4 sm:gap-6 text-green-800 font-semibold text-sm">
               <li className="flex items-center gap-1 whitespace-nowrap ">
-                <FaBed className="text-lg"/>
-                {listing.bedrooms > 1 ? `${listing.bedrooms} beds` : `${listing.bedrooms} bed`}
+                <FaBed className="text-lg" />
+                {listing.bedrooms > 1
+                  ? `${listing.bedrooms} beds`
+                  : `${listing.bedrooms} bed`}
               </li>
               <li className="flex items-center gap-1 whitespace-nowrap ">
-                <FaBath className="text-lg"/>
-                {listing.bathrooms > 1 ? `${listing.bathrooms} baths` : `${listing.bathrooms} bath`}
+                <FaBath className="text-lg" />
+                {listing.bathrooms > 1
+                  ? `${listing.bathrooms} baths`
+                  : `${listing.bathrooms} bath`}
               </li>
               <li className="flex items-center gap-1 whitespace-nowrap ">
-                <FaParking className="text-lg"/>
+                <FaParking className="text-lg" />
                 {listing.parking ? `Parking` : `No Parking`}
               </li>
               <li className="flex items-center gap-1 whitespace-nowrap ">
-                <FaChair className="text-lg"/>
+                <FaChair className="text-lg" />
                 {listing.furnished ? `Furnished` : `Unfurnished`}
               </li>
             </ul>
+            {currentUser && listing.userRef !== currentUser._id && !contact && (
+              <button onClick={()=>setContact(true)} className="bg-slate-900 text-white rounded-lg uppercase hover:opacity-90 p-3">
+                Contact Landlord
+              </button>
+            )}
+            {contact && <Contact listing={listing} />}
           </div>
         </div>
       )}

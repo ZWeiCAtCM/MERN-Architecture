@@ -29,7 +29,7 @@ export default function Profile() {
   const [formData, setFormData] = useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [showListingsError, setShowListingsError] = useState(false);
-  const [userListings, setUserListings] = useState([]);
+  const [userListings, setUserListings] = useState(null);
   const dispatch = useDispatch();
 
   //firebase storage
@@ -250,6 +250,7 @@ export default function Profile() {
       <p className="text-red-700 mt-5">
         {showListingsError ? "Error showing listings" : ""}
       </p>
+      {userListings && userListings.length === 0 && <p className="text-center text-slate-800">You have no listing yet, go create some!</p>}
 
       {userListings && userListings.length > 0 && (
         <div className="flex flex-col gap-4">
