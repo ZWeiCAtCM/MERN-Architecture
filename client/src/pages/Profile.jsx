@@ -264,14 +264,14 @@ export default function Profile() {
             >
               <Link
                 to={`/listing/${listing._id}`}
-                className="flex justify-between items-center gap-4"
+                className="flex justify-between items-center gap-4 w-full"
               >
                 <img
                   src={listing.imageUrls[0]}
                   alt="listing cover"
                   className="h-16 w-16 object-contain"
                 />
-                <p className="text-slate-700 font-semibold flex-1 hover:underline truncate">
+                <p className="text-slate-700 w-1 font-semibold flex-1 hover:underline truncate">
                   {listing.name}
                 </p>
               </Link>
